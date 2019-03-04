@@ -1,0 +1,147 @@
+1-1
+A=imread ('7.bmp') %??¨¨?¨ºy?Y%
+imfinfo('7.bmp')%?¨¢¨¨????t¨ª¡¤%
+1-2
+A=imread ('lena.bmp') %??¨¨?¨ºy?Y%
+for i=1:512
+    for j=1:512
+        A1(i,j)=floor(A(i,j)/2);
+        A2(i,j)=floor(A1(i,j)/2);
+        A3(i,j)=floor(A2(i,j)/2);
+        A4(i,j)=floor(A3(i,j)/2);
+        A5(i,j)=floor(A4(i,j)/2);
+        A6(i,j)=floor(A5(i,j)/2);
+        A7(i,j)=floor(A6(i,j)/2);
+        A8(i,j)=floor(A7(i,j)/2);
+    end
+end
+figure(1)
+imshow(A,[0,255]);
+imwrite(A1,'t2_A1.bmp');
+figure(2)
+imshow(A1,[0,127]);
+ 
+imwrite(A2,'t2_A2.bmp');
+figure(3)
+imshow(A2,[0,63]);
+ 
+imwrite(A3,'t2_A3.bmp')
+figure(4)
+imshow(A3,[0,31]);
+ 
+imwrite(A4,'t2_A4.bmp');
+figure(5)
+imshow(A4,[0,15]);
+imwrite(A5,'t2_A5.bmp');
+figure(6)
+imshow(A5,[0,7]);
+ 
+imwrite(A6,'t2_A6.bmp');
+figure(7)
+imshow(A6,[0,3]);
+ 
+imwrite(A7,'t2_A7.bmp');
+figure(8)
+imshow(A7,[0,2]);
+ 
+
+1-3
+A=imread ('lena.bmp') %??¨¨?¨ºy?Y%
+j=mean2(A)  %???????¨´?¦Ì%
+f=std2(A)  %????¡¤?2?%
+1-4
+A=imread ('lena.bmp') %??¨¨?¨ºy?Y%
+A1=imresize(A,[2048,2048],'nearest');
+A2=imresize(A,[2048,2048],'bilinear');
+A3=imresize(A,[2048,2048],'bicubic');
+figure(1)
+imshow(A)
+ 
+figure(2)
+imshow(A1)
+figure(3)
+imshow(A2)
+figure(4)
+imshow(A3)
+imwrite(A1,'t4_A1.bmp');
+imwrite(A2,'t4_A2.bmp');
+imwrite(A3,'t4_A3.bmp');
+1-5
+clc;clear;
+A=imread ('lena.bmp') %??¨¨?¨ºy?Y%
+B=imread ('elain1.bmp') %??¨¨?¨ºy?Y%
+ 
+T1=[1,1.5,0;0,1,0;0,0,1]; %¨¦¨¨??shear2?¨ºy1.5
+ 
+tform=affine2d(T1);
+A1=imwarp(A,tform,'nearest');
+A2=imwarp(A,tform,'bilinear');
+A3=imwarp(A,tform,'bicubic');
+A1=imresize(A1,[2048,2048],'nearest');
+A2=imresize(A2,[2048,2048],'bilinear');
+A3=imresize(A3,[2048,2048],'bicubic');
+ 
+B1=imwarp(B,tform,'nearest');
+B2=imwarp(B,tform,'bilinear');
+B3=imwarp(B,tform,'bicubic');
+B1=imresize(B1,[2048,2048],'nearest');
+B2=imresize(B2,[2048,2048],'bilinear');
+B3=imresize(B3,[2048,2048],'bicubic');figure(1)
+imshow(A)
+figure(2)
+imshow(A1)
+figure(3)
+imshow(A2)
+figure(4)
+imshow(A3)
+ 
+figure(5)
+imshow(B)
+figure(6)
+imshow(B1)
+figure(7)
+imshow(B2)
+figure(8)
+imshow(B3)
+1-51
+clc;clear;
+A=imread ('lena.bmp') %??¨¨?¨ºy?Y%
+B=imread ('elain1.bmp') %??¨¨?¨ºy?Y%
+ 
+rhte=30;
+T1=[cosd(rhte) sind(rhte) 0;-sind(rhte) cosd(rhte) 0;0 0 1]; %¨¦¨¨??Dy¡Áa
+ 
+tform=affine2d(T1);
+A1=imwarp(A,tform,'nearest');
+A2=imwarp(A,tform,'bilinear');
+A3=imwarp(A,tform,'bicubic');
+A1=imresize(A1,[2048,2048],'nearest');
+A2=imresize(A2,[2048,2048],'bilinear');
+A3=imresize(A3,[2048,2048],'bicubic');
+ 
+B1=imwarp(B,tform,'nearest');
+B2=imwarp(B,tform,'bilinear');
+B3=imwarp(B,tform,'bicubic');
+B1=imresize(B1,[2048,2048],'nearest');
+B2=imresize(B2,[2048,2048],'bilinear');
+B3=imresize(B3,[2048,2048],'bicubic');
+ 
+ 
+ 
+figure(1)
+imshow(A)
+figure(2)
+imshow(A1)
+figure(3)
+imshow(A2)
+figure(4)
+imshow(A3)
+ 
+figure(5)
+imshow(B)
+figure(6)
+imshow(B1)
+figure(7)
+imshow(B2)
+figure(8)
+imshow(B3)
